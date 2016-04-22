@@ -1,0 +1,7 @@
+# Almost everything
+*
+!.gitignore
+!/.config/
+!/.config/i3/
+!/.config/i3/*
+!/.config/i3/*/*
