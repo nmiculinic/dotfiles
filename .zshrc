@@ -57,6 +57,9 @@ compinit
 promptinit
 
 prompt walters
+
+ZSH_THEME=robbyrussell
+
 zstyle ':completion:*' menu select
 setopt completealiases
 

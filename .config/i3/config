@@ -136,7 +136,8 @@ bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 
-bindsym $mod+d exec rofi -show run -lines 5 P-eh 2 -width 100 -padding 400 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "font pango: Special Elite 18"
+bindsym $mod+d exec rofi -show run
+
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -179,9 +180,8 @@ bindsym $mod+r mode "resize"
 
 
 # Keys
-exec_always xmodmap -e "clear lock" #disable caps lock switch
-exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
 exec_always compton
+exec_always setxkbmap hr us
 
 ##        #######   #######  ##    ##      ####       ######## ######## ######## ##
 ##       ##     ## ##     ## ##   ##      ##  ##      ##       ##       ##       ##
@@ -191,8 +191,10 @@ exec_always compton
 ##       ##     ## ##     ## ##   ##     ##   ##      ##       ##       ##       ##
 ########  #######   #######  ##    ##     ####  ##    ##       ######## ######## ########
 
-# font pango: System San Francisco Display 10
-font pango: Lobster 10
+font pango: System San Francisco Bold 10
+# <!-- font pango: Lobster 10 -->
+for_window [class=".*"] title_format "   <span>%title</span>"
+
 hide_edge_borders both
 
 exec_always feh --bg-max --randomize ~/.wallpapers/*
@@ -204,6 +206,7 @@ set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
 bar {
+    font pango: Lobster 10
   status_command i3blocks -c ~/.config/i3/i3blocks.conf
         tray_output LVDS1
         position bottom

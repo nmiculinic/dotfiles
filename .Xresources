@@ -1,0 +1,70 @@
+! #     #
+!  #   #  ###### #####
+!   # #   #        #
+!    #    #####    #
+!   # #   #        #
+!  #   #  #        #
+! #     # #        #
+
+Xft.autohint: 0
+Xft.antialias: 1
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.dpi: 106
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+
+
+!  ######
+!  #     #  ####  ###### #
+!  #     # #    # #      #
+!  ######  #    # #####  #
+!  #   #   #    # #      #
+!  #    #  #    # #      #
+!  #     #  ####  #      #
+!
+! man rofi
+
+rofi.modi:                           window,run
+rofi.opacity:                        75
+rofi.width:                          -75
+rofi.lines:                          5
+rofi.columns:                        1
+rofi.font:                           Lobster 16
+
+! Border width
+rofi.bw:                             5
+rofi.location:                       0
+rofi.padding:                        30
+rofi.hide-scrollbar:                  true
+
+rofi.fixed-num-lines:                true
+rofi.terminal:                       rofi-sensible-terminal
+rofi.ssh-client:                     ssh
+rofi.ssh-command:                    {terminal} -e {ssh-client} {host}
+rofi.run-command:                    {cmd}
+rofi.run-shell-command:              {terminal} -e {cmd}
+
+rofi.levenshtein-sort:               false
+rofi.case-sensitive:                 false
+rofi.sidebar-mode:                   true
+
+rofi.lazy-filter-limit:              15000
+! Row height (in chars)
+rofi.eh:                             1
+rofi.auto-select:                    false
+rofi.parse-hosts:                    false
+rofi.parse-known-hosts:              true
+
+rofi.combi-modi:                     window,run
+rofi.fuzzy:                          true
+
+rofi.kb-clear-line: Control+l
+rofi.kb-remove-word-back: Control+BackSpace
+
+! https://davedavenport.github.io/rofi/p05-Themes.html
+rofi.color-enabled: true
+rofi.color-window: #393939, #393939, #268bd2
+rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
+rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
+rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c

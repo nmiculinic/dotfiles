@@ -50,3 +50,8 @@ if has("autocmd")
 else
   set autoindent "always set autoindenting on
 endif
+
+set nobackup       "no backup files
+set nowritebackup  "only in case you don't want a backup file while editing
+set noswapfile     "no swap files
+
