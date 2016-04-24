@@ -5,3 +5,6 @@
 !/.config/i3/
 !/.config/i3/*
 !/.config/i3/*/*
+!/.zshrc
+!/.tmux.conf
+!/.vimrc

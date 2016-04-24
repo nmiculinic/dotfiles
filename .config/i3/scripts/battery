@@ -1,0 +1,5 @@
+#!/bin/python
+
+import sh
+sh.bash()
+print (3)

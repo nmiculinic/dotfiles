@@ -136,7 +136,7 @@ bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 
-bindsym $mod+d exec rofi -show run -lines 5 P-eh 2 -width 100 -padding 400 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Atomic Age 18"
+bindsym $mod+d exec rofi -show run -lines 5 P-eh 2 -width 100 -padding 400 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "font pango: Special Elite 18"
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -168,54 +168,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-##        #######   #######  ##    ##      ####       ######## ######## ######## ##
-##       ##     ## ##     ## ##   ##      ##  ##      ##       ##       ##       ##
-##       ##     ## ##     ## ##  ##        ####       ##       ##       ##       ##
-##       ##     ## ##     ## #####        ####        ######   ######   ######   ##
-##       ##     ## ##     ## ##  ##      ##  ## ##    ##       ##       ##       ##
-##       ##     ## ##     ## ##   ##     ##   ##      ##       ##       ##       ##
-########  #######   #######  ##    ##     ####  ##    ##       ######## ######## ########
-
-font pango:monospace 8
-hide_edge_borders both
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
-
-# window colors
-#                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
-
-
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status
-        tray_output LVDS1
-        position top
-        font pango:monospace 10
-        strip_workspace_numbers yes
-        colors {
-            background #414858
-            separator #757575
-            #                  border             background         text
-            focused_workspace  $bg-color          $bg-color          $text-color
-            inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-            urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-        }
-}
-
-
-
-# Keys
-exec_always xmodmap -e "clear lock" #disable caps lock switch
-exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
 
 ######## ##     ## ########  ######
 ##        ##   ##  ##       ##    ##
@@ -225,6 +177,51 @@ exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
 ##        ##   ##  ##       ##    ##
 ######## ##     ## ########  ######
 
-# Tray stuff
-exec --no-startup-id nm-applet
-exec --no-startup-id pamac-tray
+
+# Keys
+exec_always xmodmap -e "clear lock" #disable caps lock switch
+exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
+exec_always compton
+
+##        #######   #######  ##    ##      ####       ######## ######## ######## ##
+##       ##     ## ##     ## ##   ##      ##  ##      ##       ##       ##       ##
+##       ##     ## ##     ## ##  ##        ####       ##       ##       ##       ##
+##       ##     ## ##     ## #####        ####        ######   ######   ######   ##
+##       ##     ## ##     ## ##  ##      ##  ## ##    ##       ##       ##       ##
+##       ##     ## ##     ## ##   ##     ##   ##      ##       ##       ##       ##
+########  #######   #######  ##    ##     ####  ##    ##       ######## ######## ########
+
+# font pango: System San Francisco Display 10
+font pango: Lobster 10
+hide_edge_borders both
+
+exec_always feh --bg-max --randomize ~/.wallpapers/*
+
+set $bg-color 	         #2f343f
+set $inactive-bg-color   #2f343f
+set $text-color          #9ea6ae
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #E53935
+
+bar {
+  status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        tray_output LVDS1
+        position bottom
+        strip_workspace_numbers yes
+  colors {
+      background $bg-color
+          separator #757575
+      #                  border             background         text
+      focused_workspace  #434852          $bg-color          $text-color
+      inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+      urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+
+  }
+}
+
+# window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          #00ff00
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
