@@ -3,7 +3,6 @@ set $mod Mod4
 set $alt Mod1
 
 
-
 ##    ## ######## ##    ## ########  #### ##    ## ########  #### ##    ##  ######    ######
 ##   ##  ##        ##  ##  ##     ##  ##  ###   ## ##     ##  ##  ###   ## ##    ##  ##    ##
 ##  ##   ##         ####   ##     ##  ##  ####  ## ##     ##  ##  ####  ## ##        ##
@@ -178,9 +177,11 @@ bindsym $mod+r mode "resize"
 ##        ##   ##  ##       ##    ##
 ######## ##     ## ########  ######
 
+exec nm-applet
+exec pamac-tray
+exec_always compton
 
 # Keys
-exec_always compton
 exec_always setxkbmap hr us
 
 ##        #######   #######  ##    ##      ####       ######## ######## ######## ##
@@ -192,22 +193,19 @@ exec_always setxkbmap hr us
 ########  #######   #######  ##    ##     ####  ##    ##       ######## ######## ########
 
 font pango: System San Francisco Bold 10
-# <!-- font pango: Lobster 10 -->
-for_window [class=".*"] title_format "   <span>%title</span>"
-
+for_window [class=".*"] title_format "   %title"
 hide_edge_borders both
 
 exec_always feh --bg-max --randomize ~/.wallpapers/*
-
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
+set $bg-color 	         #444444
+set $inactive-bg-color   #444444
 set $text-color          #9ea6ae
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
 bar {
-    font pango: Lobster 10
-  status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    font pango: SansP 10
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
         tray_output LVDS1
         position bottom
         strip_workspace_numbers yes
