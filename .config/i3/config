@@ -186,6 +186,7 @@ bindsym $mod+r mode "resize"
 exec nm-applet
 exec pamac-tray
 exec_always compton
+exec /opt/grive-tools/grive-indicator
 
 # Keys
 exec_always setxkbmap hr us
@@ -214,7 +215,7 @@ bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
         tray_output LVDS1
         position bottom
-        strip_workspace_numbers yes
+        strip_workspace_numbers no
   colors {
       background $bg-color
           separator #757575

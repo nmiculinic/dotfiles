@@ -5,6 +5,10 @@
 !/.config/i3/
 !/.config/i3/*
 !/.config/i3/*/*
+
+!/.config/ranger/
+!/.config/ranger/*
+
 !/.zshrc
 !/.tmux.conf
 !/.vimrc
