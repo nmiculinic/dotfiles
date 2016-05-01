@@ -100,10 +100,16 @@ setopt pushdminus
 . /usr/share/doc/pkgfile/command-not-found.zsh
 . /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-if which ruby >/dev/null && which gem >/dev/null; then
+if which ruby > dev/null && which gem >/dev/null; then
 	    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
 # Aliases
 
 alias v=vim
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+export GOPATH=~/gopath
+export PATH=$GOPATH:$GOPATH/bin:${PATH}
+
+

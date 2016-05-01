@@ -9,6 +9,10 @@
 !/.config/ranger/
 !/.config/ranger/*
 
+!/.config/systemd/
+!/.config/systemd/user/
+!/.config/systemd/user/*
+
 !/.zshrc
 !/.tmux.conf
 !/.vimrc

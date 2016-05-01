@@ -1,0 +1,10 @@
+[Unit]
+Description=Google-disk
+Documentation=https://github.com/vitalif/grive2/
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/grive -p /home/lpp/gdrive
+
+[Install]
+Alias=default.target
