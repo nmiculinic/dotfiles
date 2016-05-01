@@ -13,6 +13,9 @@
 !/.config/systemd/user/
 !/.config/systemd/user/*
 
+!/.config/dunst/dunstrc
+!/.config/dunst/
+
 !/.zshrc
 !/.tmux.conf
 !/.vimrc
