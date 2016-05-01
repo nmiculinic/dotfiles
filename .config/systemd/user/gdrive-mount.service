@@ -1,0 +1,12 @@
+[Unit]
+Description=Mounts google drive
+Documentation=https://github.com/astrada/google-drive-ocamlfuse
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/google-drive-ocamlfuse -f -verbose /home/lpp/mnt/gdrive
+
+[Install]
+Alias=default.target
