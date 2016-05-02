@@ -1,0 +1,6 @@
+[Unit]
+Description=Sends desktop notification for failed service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/notify-send --urgency=critical "User service %i failed"
