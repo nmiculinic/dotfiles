@@ -3,10 +3,11 @@ Description=Mounts google drive
 Documentation=https://github.com/astrada/google-drive-ocamlfuse
 After=network-online.target
 Wants=network-online.target
+OnFailure=serviceFailed@%n.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/google-drive-ocamlfuse -f -verbose /home/lpp/mnt/gdrive
+ExecStart=/usr/bin/google-drive-ocamlfuse -f -verbose %h/mnt/gdrive
 
 [Install]
 Alias=default.target
