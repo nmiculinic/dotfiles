@@ -12,6 +12,8 @@ This file is aggregation of various tools I use day to day
 * zsh
 * zsh-syntax-highlighting
 * fzf
+* ncdu - NCurses Disk Usage
+* zenity -- GTK dialogs from command line
 
 ## WM
 * i3

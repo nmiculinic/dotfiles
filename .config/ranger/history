@@ -1,0 +1,8 @@
+open_with 
+redraw_window
+find mu
+set autoupdate_cumulative_size
+set automatically_count_files true
+get_cumulative_size 
+!du -sh
+

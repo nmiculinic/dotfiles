@@ -106,9 +106,11 @@ fi
 
 # Aliases
 
+alias s='du -sh * && du -sh' #summarize folder sizes
 alias v=vim
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+alias pb='pastebinit'
 export GOPATH=~/gopath
 export PATH=$GOPATH:$GOPATH/bin:${PATH}
 
