@@ -10,4 +10,4 @@ Type=simple
 ExecStart=/usr/bin/google-drive-ocamlfuse -f -verbose %h/mnt/gdrive
 
 [Install]
-Alias=default.target
+WantedBy=default.target
