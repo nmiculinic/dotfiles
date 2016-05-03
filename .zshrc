@@ -1,8 +1,24 @@
+source /usr/share/zsh/scripts/antigen/antigen.zsh
+
+antigen use oh-my-zsh
+
+antigen bundles <<EOBUNDLES
+	git
+	pip
+	zsh-users/zsh-syntax-highlighting
+	command-not-found
+	npm
+	archlinux
+	systemd
+EOBUNDLES
+
+antigen theme robbyrussell
+antigen apply
+
+
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="dd.mm.yyyy"
-
-plugins=(git tmux)
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export LANG=en_US.UTF-8
@@ -12,10 +28,6 @@ export LANG=en_US.UTF-8
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-autoload -Uz promptinit
-promptinit
-
-prompt walters
 
 zstyle ':completion:*' menu select
 setopt completealiases
@@ -54,10 +66,8 @@ setopt pushdminus
 # Various includes
 
 . /etc/profile.d/fzf.zsh
-. /usr/share/doc/pkgfile/command-not-found.zsh
-. /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-if which ruby > dev/null && which gem >/dev/null; then
+if which ruby > /dev/null && which gem >/dev/null; then
 	    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
