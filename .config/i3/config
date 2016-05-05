@@ -120,7 +120,6 @@ set $w10 "10 "
 
 #default workspace
 assign [class="Spot"] → $w10
-assign [class="Atom"] → $w2
 assign [class="Franz"] → $w9
 assign [title="WeeChat"] → $w9
 assign [instance="weechat"] $w9
@@ -186,6 +185,7 @@ bindsym $mod+r mode "resize"
 ######## ##     ## ########  ######
 
 exec nm-applet
+exec pasystray
 exec pamac-tray
 exec franz
 exec_always compton

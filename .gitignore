@@ -13,10 +13,14 @@
 !/.config/systemd/user/
 !/.config/systemd/user/*
 
-!/.config/dunst/dunstrc
 !/.config/dunst/
+!/.config/dunst/*
+
+!/scripts
+!/scripts/*
 
 !/.zshrc
+!/.zpreztorc
 !/.tmux.conf
 !/.vimrc
 !/.Xresources
