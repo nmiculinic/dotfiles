@@ -6,8 +6,6 @@ export LANG=en_US.UTF-8
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-
-#
 # My primary framework is prezto.
 # But I need some oh-my-zsh goodness
 # thus I load it manually
@@ -15,6 +13,13 @@ export LANG=en_US.UTF-8
 OMZ="/usr/share/oh-my-zsh"
 source ${OMZ}/plugins/pip/pip.plugin.zsh  
 fpath=($fpath $OMZ/plugins/pip)
+
+source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_SHORTEN_STRATEGY=truncate_from_right
+POWERLEVEL9K_SHORTEN_DELIMITER=""
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
 
 zstyle ':completion:*' menu select
 setopt completealiases
