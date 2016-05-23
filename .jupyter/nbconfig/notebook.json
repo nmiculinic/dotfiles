@@ -1,0 +1,17 @@
+{
+  "autosavetime_show_selector": false,
+  "load_extensions": {
+    "config_menu/main": true,
+    "execute_time/ExecuteTime": true,
+    "notify/notify": true,
+    "autosavetime/main": true,
+    "scratchpad/main": true,
+    "codefolding/main": true,
+    "move_selected_cells/main": true,
+    "freeze/main": true,
+    "keyboard_shortcut_editor/main": true,
+    "toggle_all_line_numbers/main": true,
+    "ruler/main": true
+  },
+  "toggle_all_linenumbers_enable_hotkey": false
+}

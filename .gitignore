@@ -25,3 +25,7 @@
 !/.vimrc
 !/.Xresources
 !/README.md
+
+!/.jupyter
+!/.jupyter/*
+!/.jupyter/*/*
