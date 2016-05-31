@@ -202,11 +202,13 @@ exec_always setxkbmap hr us
 ##       ##     ## ##     ## ##   ##     ##   ##      ##       ##       ##       ##
 ########  #######   #######  ##    ##     ####  ##    ##       ######## ######## ########
 
-font pango: System San Francisco Bold 10
-for_window [class=".*"] title_format "   %title"
-hide_edge_borders both
+for_window [class=".*"] border pixel 3
+gaps inner 10
+gaps outer 2
+smart_gaps on
+smart_borders on
 
-exec_always feh --bg-max --randomize ~/.wallpapers/*
+exec_always feh --bg-fill --randomize ~/.wallpapers/*
 set $bg-color 	         #444444
 set $inactive-bg-color   #444444
 set $text-color          #9ea6ae
@@ -223,7 +225,7 @@ bar {
       background $bg-color
           separator #757575
       #                  border             background         text
-      focused_workspace  #434852          $bg-color          $text-color
+      focused_workspace  #434852            $bg-color          $text-color
       inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
       urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 
@@ -231,8 +233,8 @@ bar {
 }
 
 # window colors
-#                       border              background         text                 indicator    child_border
-client.focused          $bg-color           $bg-color          $text-color          #00ff00      $bg-color
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00      $inactive-bg-color
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00      $inactive-bg-color
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00      $urgent-bg-color 
+#                       border              background         text                 indicator             child_border
+client.focused          #141542             #141542            $text-color          #141542               #141542
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color    $inactive-bg-color
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color    $inactive-bg-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $urgent-bg-color      $urgent-bg-color 
