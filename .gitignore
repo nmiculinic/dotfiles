@@ -29,3 +29,8 @@
 !/.jupyter
 !/.jupyter/*
 !/.jupyter/*/*
+
+!/.local/share/applications/mimeapps.list
+!/.local/share/applications
+!/.local/share
+!/.local
