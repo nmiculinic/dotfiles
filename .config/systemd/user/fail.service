@@ -1,0 +1,10 @@
+[Unit]
+Description=Fails with error code 1
+OnFailure=serviceFailed@%n.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash -c 'exit 1'
+
+[Install]
+Alias=default.target
