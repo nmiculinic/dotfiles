@@ -1,0 +1,14 @@
+[Unit]
+Description=google drive sync with grive2
+Documentation=https://github.com/vitalif/grive2
+After=network-online.target
+Wants=network-online.target
+OnFailure=serviceFailed@%n.timer
+
+[Timer]
+OnBootSec=5min
+RandomizedDelay=10s
+OnUnitInactiveSec=1h
+
+[Install]
+WantedBy=default.target

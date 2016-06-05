@@ -1,0 +1,14 @@
+[Unit]
+Description=google drive sync with grive2
+Documentation=https://github.com/vitalif/grive2
+After=network-online.target
+Wants=network-online.target
+OnFailure=serviceFailed@%n.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/grive
+WorkingDirectory=%h/Documents
+
+[Install]
+WantedBy=default.target
