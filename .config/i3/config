@@ -21,10 +21,10 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+q kill
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -33,10 +33,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right 
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -45,10 +45,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+n split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+m split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -202,10 +202,13 @@ exec_always setxkbmap hr us
 ##       ##     ## ##     ## ##   ##     ##   ##      ##       ##       ##       ##
 ########  #######   #######  ##    ##     ####  ##    ##       ######## ######## ########
 
-for_window [class=".*"] border pixel 3
+# for_window [class=".*"] border pixel 3
+font pango: System San Francisco Bold 8
+for_window [class=".*"] title_format "   %title"
+for_window [class=".*"] normal 0
 gaps inner 10
-gaps outer 2
-smart_gaps on
+gaps outer 0
+# smart_gaps off
 smart_borders on
 
 exec_always feh --bg-fill --randomize ~/.wallpapers/*
@@ -230,11 +233,14 @@ bar {
       urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 
   }
+  mode hide
 }
+
+set $abg-color #444444
 
 # window colors
 #                       border              background         text                 indicator             child_border
-client.focused          #141542             #141542            $text-color          #141542               #141542
+client.focused          $abg-color             $abg-color $text-color          $abg-color               $abg-color
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color    $inactive-bg-color
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color    $inactive-bg-color
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $urgent-bg-color      $urgent-bg-color 
