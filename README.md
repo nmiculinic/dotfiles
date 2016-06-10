@@ -25,3 +25,6 @@ This file is aggregation of various tools I use day to day
 ## Messenging
 
 * [Franz](http://meetfranz.com/)
+
+## Mics
+* lsyncd --> for syncing local foler on ssh remote
