@@ -10,23 +10,6 @@ export LANG=en_US.UTF-8
 # But I need some oh-my-zsh goodness
 # thus I load it manually
 #
-OMZ="/usr/share/oh-my-zsh"
-source ${OMZ}/plugins/pip/pip.plugin.zsh  
-fpath=($fpath $OMZ/plugins/pip)
-
-source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_SHORTEN_STRATEGY=truncate_from_right
-POWERLEVEL9K_SHORTEN_DELIMITER=""
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode dir)
-
-POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='black'
-POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='yellow'
-
-POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='black'
-POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='blue'
-
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs)
 
 zstyle ':completion:*' menu select
 setopt completealiases

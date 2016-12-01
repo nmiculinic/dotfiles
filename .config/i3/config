@@ -1,4 +1,8 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+# Mod4 Win
+# Mod1 Alt
+
 set $mod Mod4
 set $alt Mod1
 
@@ -177,10 +181,7 @@ bindsym $mod+r mode "resize"
 ##        ##   ##  ##       ##    ##
 ######## ##     ## ########  ######
 
-exec nm-applet
-exec pasystray
-exec pamac-tray
-exec franz
+exec franz-bin
 exec_always compton
 exec setxkbmap -option caps:escape
 
@@ -194,19 +195,17 @@ exec_always setxkbmap hr us
 ##       ##     ## ##     ## ##  ##      ##  ## ##    ##       ##       ##       ##
 ##       ##     ## ##     ## ##   ##     ##   ##      ##       ##       ##       ##
 ########  #######   #######  ##    ##     ####  ##    ##       ######## ######## ########
-
-# for_window [class=".*"] border pixel 3
-font pango: System San Francisco Bold 8
-for_window [class=".*"] title_format "   %title"
-for_window [class=".*"] normal 0
-gaps inner 10
-gaps outer 0
+# for_window [class=".*"] title_format "   %title"
+# for_window [class=".*"] normal 0
+for_window [class=".*"] border pixel 0
+# gaps inner 10
+# gaps outer 0
 # smart_gaps off
-smart_borders on
+# smart_borders on
 
-exec_always feh --bg-fill --randomize ~/.wallpapers/*
-set $bg-color 	         #444444
-set $inactive-bg-color   #444444
+exec_always feh --bg-fill --randomize ~/Pictures/*
+set $bg-color 	         #000000
+set $inactive-bg-color   #000000
 set $text-color          #9ea6ae
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
@@ -214,7 +213,7 @@ set $urgent-bg-color     #E53935
 bar {
     font pango: SansP 10
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        tray_output LVDS1
+        tray_output HDMI1
         position bottom
         strip_workspace_numbers no
   colors {
@@ -226,7 +225,6 @@ bar {
       urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 
   }
-  mode hide
 }
 
 set $abg-color #444444
