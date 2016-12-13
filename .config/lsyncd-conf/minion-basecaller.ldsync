@@ -1,0 +1,7 @@
+sync {
+   default.rsyncssh,
+   source="/home/lpp/Desktop/minion-basecaller",
+   host="karla",
+   targetdir="/home/nmiculinic/minion-basecaller",
+   delay = 1
+}

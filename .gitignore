@@ -16,6 +16,9 @@
 !/.config/dunst/
 !/.config/dunst/*
 
+!/.config/lsyncd-conf/
+!/.config/lsyncd-conf/*
+
 !/scripts
 !/scripts/*
 
