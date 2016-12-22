@@ -8,7 +8,9 @@ Type=simple
 Nice=19
 ExecStart=/usr/bin/lsyncd -nodaemon -pidfile /tmp/lsyncd%i.pid %h/.config/lsyncd-conf/%i.ldsync
 ExecReload=/bin/kill -HUP $MAINPID
+ExecStop=/bin/kill -TERM $MAINPID
 PIDFile=/tmp/lsyncd%i.pid
+SuccessExitStatus=0 143
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target

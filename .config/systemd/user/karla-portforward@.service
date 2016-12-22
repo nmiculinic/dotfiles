@@ -9,4 +9,4 @@ RestartSec=5
 ExecStart=/usr/bin/ssh -F %h/.ssh/config -NL %i:localhost:%i karla
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
