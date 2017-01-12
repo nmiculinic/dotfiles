@@ -1,0 +1,7 @@
+sync {
+   default.rsyncssh,
+   source="/home/lpp/Desktop/deep-learning",
+   host="karla",
+   targetdir="/home/nmiculinic/deep-learning-fer",
+   delay = 1
+}

@@ -4,6 +4,7 @@ After=network.target
 
 [Service]
 Restart=always
+RestartSec=5s
 Type=simple
 Nice=19
 ExecStart=/usr/bin/lsyncd -nodaemon -pidfile /tmp/lsyncd%i.pid %h/.config/lsyncd-conf/%i.ldsync
