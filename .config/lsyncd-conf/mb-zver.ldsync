@@ -1,0 +1,13 @@
+settings {
+        statusFile = "/tmp/lsyncd%i.stat",
+        statusIntervall = 1,
+}
+
+sync {
+   default.rsyncssh,
+   source="/home/lpp/Desktop/minion-basecaller",
+   host="karla",
+   targetdir="/home/nmiculinic/minion-basecaller",
+   delay = 1,
+   exclude={"notebook", "log"}
+}

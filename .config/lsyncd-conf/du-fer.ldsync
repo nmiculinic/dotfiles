@@ -1,0 +1,13 @@
+settings {
+        statusFile = "/tmp/lsyncd%i.stat",
+        statusIntervall = 1,
+}
+
+sync {
+   default.rsyncssh,
+   source="/home/lpp/Desktop/du-fer",
+   host="zver",
+   targetdir="/home/nmiculinic/du-fer",
+   delay = 1,
+   exclude={"notebook", "log"}
+}
