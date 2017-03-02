@@ -38,6 +38,7 @@ zplug "plugins/colored-man-pages",   from:oh-my-zsh
 zplug "plugins/fasd",   from:oh-my-zsh
 zplug "djui/alias-tips"
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "nmiculinic/dotfiles", use:""
 
 zplug "junegunn/fzf-bin", \
     from:gh-r, \
@@ -46,7 +47,7 @@ zplug "junegunn/fzf-bin", \
     use:"*linux*amd64*"
 
 zplug "junegunn/fzf", use:"shell/key-bindings.zsh", defer:3
-zplug load --verbose
+zplug load #--verbose
 
 zplug check --verbose
 if [ ! $? -eq 0 ]; then
