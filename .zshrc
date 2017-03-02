@@ -1,5 +1,4 @@
 export ZPLUG_HOME=$HOME/.zplug
-
 if [[ ! -d $ZPLUG_HOME ]];then
   curl -sL zplug.sh/installer | zsh
 fi
@@ -16,23 +15,33 @@ zplug "zsh-users/zsh-syntax-highlighting"
 
 #d prints the contents of the directory stack.
 #1 ... 9 changes the directory to the n previous one.
-zplug "zsh-users/prezto", use:"modules/{utility,directory,git,environment,terminal,editor,history,completion}"
+zplug "zsh-users/prezto", use:"modules/{utility,directory,git,environment,editor,history,completion}"
 
 if [ "$(hostname)" = "protagonist" ]; then
-  zplug "zsh-users/prezto", use:"modules/zsh-notify"
+  zplug "zsh-users/prezto", use:"modules/{zsh-notify,terminal}"
+  zstyle ':prezto:module:terminal' auto-title 'yes'
+  zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
 fi
 zplug 'eendroroy/alien-minimal', as:theme
 
-zstyle ':prezto:module:terminal' auto-title 'yes'
-zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
 zstyle ':prezto:module:editor' key-bindings 'vi'
 
 export HISTSIZE=100000
 export SAVEHIST=100000
 
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+  'main' \
+  'brackets' \
+  'pattern' \
+  'cursor' \
+  'root'
+
+
 zplug "plugins/wd",   from:oh-my-zsh
 zplug "plugins/archlinux",   from:oh-my-zsh
 zplug "plugins/pip",   from:oh-my-zsh
+zplug "plugins/colored-man-pages",   from:oh-my-zsh
+zplug "plugins/fasd",   from:oh-my-zsh
 zplug "djui/alias-tips"
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
@@ -42,8 +51,8 @@ zplug "junegunn/fzf-bin", \
     rename-to:fzf, \
     use:"*linux*amd64*"
 
-zplug "junegunn/fzf", use:"shell/key-bindings.zsh", defer:3  # Just manage it... loading it manually later
-zplug load #--verbose
+zplug "junegunn/fzf", use:"shell/key-bindings.zsh", defer:3
+zplug load --verbose
 
 zplug check --verbose
 if [ ! $? -eq 0 ]; then
