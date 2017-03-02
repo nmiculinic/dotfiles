@@ -45,7 +45,7 @@ zplug "plugins/colored-man-pages",   from:oh-my-zsh
 zplug "plugins/fasd",   from:oh-my-zsh
 zplug "djui/alias-tips"
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug "nmiculinic/dotfiles", use:""
+zplug "tmux-plugins/tpm", use:""
 
 zplug "junegunn/fzf-bin", \
     from:gh-r, \
