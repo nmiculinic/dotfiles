@@ -42,7 +42,7 @@ zplug "junegunn/fzf-bin", \
     rename-to:fzf, \
     use:"*linux*amd64*"
 
-zplug "junegunn/fzf", use:""  # Just manage it... loading it manually later
+zplug "junegunn/fzf", use:"shell/key-bindings.zsh", defer:3  # Just manage it... loading it manually later
 zplug load #--verbose
 
 zplug check --verbose
@@ -52,8 +52,6 @@ if [ ! $? -eq 0 ]; then
     echo; zplug install
   fi
 fi
-
-source $ZPLUG_REPOS/junegunn/fzf/shell/key-bindings.zsh
 
 zstyle ':completion:*:default'         list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu select
