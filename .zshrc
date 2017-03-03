@@ -108,3 +108,7 @@ gl() {
                 echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
                 xargs -I % sh -c 'git show --color=always % | less -R'"
 }
+
+if [ ! "$(hostname)" = "protagonist" ] && [ -z "$TMUX" ]; then
+  tmux attach-session -t work || tmux new-session -s work
+fi
