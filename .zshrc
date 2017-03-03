@@ -67,7 +67,7 @@ fi
 
 zstyle ':completion:*:default'         list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu select
-setopt completealiases
+setopt no_complete_aliases
 setopt HIST_IGNORE_DUPS
 
 for p in "$HOME/.local/bin" "$HOME/bin" "$ZPLUG_BIN"; do
