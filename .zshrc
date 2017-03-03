@@ -44,6 +44,8 @@ zplug "plugins/pip",   from:oh-my-zsh
 zplug "plugins/colored-man-pages",   from:oh-my-zsh
 zplug "plugins/fasd",   from:oh-my-zsh
 zplug "djui/alias-tips"
+zplug "clvv/fasd", as:command, hook-build:"PREFIX=$HOME/.local make install
+"
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 zplug "junegunn/fzf-bin", \
@@ -68,7 +70,19 @@ zstyle ':completion:*' menu select
 setopt completealiases
 setopt HIST_IGNORE_DUPS
 
-export PATH=$HOME/bin:/usr/local/bin:$ZPLUG_BIN:$PATH
+for p in "$HOME/.local/bin" "$HOME/bin" "$ZPLUG_BIN"; do
+  if [ -d $p ]; then
+    export PATH=$p:$PATH
+  fi
+done
+
+for p in "$HOME/.local/man" "$HOME/.local/share/man"; do
+  if [ -d $p ]; then
+    export MANPATH=$p:$MANPATH
+  fi
+done
+
+
 export LANG=en_US.UTF-8
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
