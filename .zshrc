@@ -89,9 +89,14 @@ export VISUAL=/usr/bin/nvim
 export BROWSER=/usr/bin/google-chrome-stable
 
 # Aliases
-alias v=nvim
-alias vi=nvim
-alias vim=nvim
+if which nvim > /dev/null; then
+  alias v=nvim
+  alias vi=nvim
+  alias vim=nvim
+else
+  alias v=vim
+  alias vi=vim
+fi
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias pb='pastebinit'
