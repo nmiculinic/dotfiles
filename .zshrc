@@ -109,6 +109,6 @@ gl() {
                 xargs -I % sh -c 'git show --color=always % | less -R'"
 }
 
-if [ ! "$(hostname)" = "protagonist" ] && [ -z "$TMUX" ]; then
+if ([ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]) && [ -z "$TMUX" ]; then
   tmux attach-session -t work || tmux new-session -s work
 fi
