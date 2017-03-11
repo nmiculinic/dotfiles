@@ -19,7 +19,7 @@ set $alt Mod1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+q kill
@@ -88,6 +88,7 @@ bindsym $mod+a [class="atom"] focus
 bindsym $mod+Shift+g exec google-chrome-stable
 bindsym $mod+g [class="google-chrome"] focus
 bindsym Control+q kill
+bindsym $mod+Control+l exec "i3lock -i /home/lpp/Pictures/lock.png"
 
 ##      ##  #######  ########  ##    ##  ######  ########     ###     ######  ########
 ##  ##  ## ##     ## ##     ## ##   ##  ##    ## ##     ##   ## ##   ##    ## ##
@@ -182,8 +183,8 @@ bindsym $mod+r mode "resize"
 ######## ##     ## ########  ######
 
 exec franz-bin
+exec_always --no-startup-id "sleep 0.5 && xmodmap /home/lpp/.Xmodmap"
 exec_always compton
-exec setxkbmap -option caps:escape
 
 # Keys
 exec_always setxkbmap hr us
@@ -203,7 +204,7 @@ for_window [class=".*"] border pixel 0
 # smart_gaps off
 # smart_borders on
 
-exec_always feh --bg-fill --randomize ~/Pictures/*
+exec_always feh --bg-fill ~/Pictures/wall/*
 set $bg-color 	         #000000
 set $inactive-bg-color   #000000
 set $text-color          #9ea6ae
@@ -211,10 +212,10 @@ set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
 bar {
-    font pango: SansP 10
+    font pango: Noto Sans Bold 10
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
         tray_output HDMI1
-        position bottom
+        position top
         strip_workspace_numbers no
   colors {
       background $bg-color

@@ -1,16 +1,17 @@
 {
-  "toggle_all_linenumbers_enable_hotkey": false,
   "autosavetime_show_selector": false,
+  "toggle_all_linenumbers_enable_hotkey": false,
   "load_extensions": {
     "scratchpad/main": true,
-    "execute_time/ExecuteTime": true,
-    "freeze/main": true,
-    "autosavetime/main": true,
-    "keyboard_shortcut_editor/main": true,
+    "codefolding/main": true,
     "toggle_all_line_numbers/main": true,
-    "move_selected_cells/main": true,
     "config_menu/main": true,
     "notify/notify": true,
-    "codefolding/main": true
+    "freeze/main": true,
+    "keyboard_shortcut_editor/main": true,
+    "execute_time/ExecuteTime": true,
+    "move_selected_cells/main": true,
+    "autosavetime/main": true,
+    "jupyter-js-widgets/extension": true
   }
 }

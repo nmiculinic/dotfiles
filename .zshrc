@@ -44,6 +44,7 @@ zplug "plugins/pip",   from:oh-my-zsh
 zplug "plugins/colored-man-pages",   from:oh-my-zsh
 zplug "plugins/fasd",   from:oh-my-zsh
 zplug "djui/alias-tips"
+zplug "unixorn/git-extra-commands"
 zplug "clvv/fasd", as:command, hook-build:"PREFIX=$HOME/.local make install
 "
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
@@ -117,3 +118,5 @@ gl() {
 if ([ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]) && [ -z "$TMUX" ]; then
   tmux attach-session -t work || tmux new-session -s work
 fi
+
+export DE=gnome  #xdg-open bug

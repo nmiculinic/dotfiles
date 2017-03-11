@@ -6,7 +6,7 @@ settings {
 sync {
    default.rsyncssh,
    source="/home/lpp/Desktop/minion-basecaller",
-   host="karla",
+   host="zver",
    targetdir="/home/nmiculinic/minion-basecaller",
    delay = 1,
    exclude={"notebook", "log"}
