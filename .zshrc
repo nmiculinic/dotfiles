@@ -119,4 +119,6 @@ if ([ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]) && [ -z "$TMUX" ]; then
   tmux attach-session -t work || tmux new-session -s work
 fi
 
+dri() { docker rmi $(docker images -q); }
+
 export DE=gnome  #xdg-open bug
