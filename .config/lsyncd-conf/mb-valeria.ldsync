@@ -1,6 +1,5 @@
 settings {
-        statusFile = "/tmp/lsyncd%i.stat",
-        statusIntervall = 1,
+        statusFile = "/tmp/lsyncd_valeria.stat",
 }
 
 sync {
