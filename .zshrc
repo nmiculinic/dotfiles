@@ -5,6 +5,10 @@ fi
 
 source $ZPLUG_HOME/init.zsh
 
+if [[ -f $HOME/.zshrc.local ]]; then
+	source $HOME/.zshrc.local
+fi
+
 # ruby
 if which ruby > /dev/null && which gem >/dev/null; then
 	PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
@@ -120,5 +124,10 @@ if ([ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]) && [ -z "$TMUX" ]; then
 fi
 
 dri() { docker rmi $(docker images -q); }
+alias ddrun='docker run --rm -it --user="`id -u`:`id -g`"'
 
 export DE=gnome  #xdg-open bug
+export HADOOP_CONF_DIR=/etc/hadoop
+export HADOOP_PREFIX=/usr/lib/hadoop/
+export JAVA_HOME=/usr/lib/jvm/default-runtime
+
