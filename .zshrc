@@ -129,5 +129,5 @@ alias ddrun='docker run --rm -it --user="`id -u`:`id -g`"'
 export DE=gnome  #xdg-open bug
 export HADOOP_CONF_DIR=/etc/hadoop
 export HADOOP_PREFIX=/usr/lib/hadoop/
-export JAVA_HOME=/usr/lib/jvm/default-runtime
-
+export JAVA_HOME=/usr/lib/jvm/java-8-jdk
+export DOCKER_ID_USER="nmiculinic"
