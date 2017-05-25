@@ -105,6 +105,8 @@ fi
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias pb='pastebinit'
+alias dd='dd status=progress'
+alias rg='ranger'
 export VISUAL=nvim
 export QT_QPA_PLATFORMTHEME=gtk2
 export KEYTIMEOUT=1

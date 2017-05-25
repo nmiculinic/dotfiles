@@ -8,5 +8,5 @@ sync {
    host="karla",
    targetdir="/home/nmiculinic/minion-basecaller",
    delay = 1,
-   exclude={"notebook", "log"}
+   exclude={"models", "notebook", "log"}
 }

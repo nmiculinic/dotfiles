@@ -10,3 +10,4 @@ application/pdf=evince.desktop
 image/jpeg=ristretto.desktop
 x-scheme-handler/magnet=transmission-gtk.desktop
 application/x-bittorrent=transmission-gtk.desktop
+x-scheme-handler/mailto=google-chrome.desktop
