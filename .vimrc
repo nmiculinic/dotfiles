@@ -19,7 +19,6 @@ set relativenumber
 set wildmenu
 
 call plug#begin()
-Plug 'VundleVim/Vundle.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
