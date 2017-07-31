@@ -60,6 +60,8 @@ zplug "junegunn/fzf-bin", \
     use:"*linux*amd64*"
 
 zplug "junegunn/fzf", use:"shell/key-bindings.zsh", defer:3
+zplug "littleq0903/gcloud-zsh-completion"
+fpath=($HOME/.zplug/repos/littleq0903/gcloud-zsh-completion/src $fpath)
 zplug load #--verbose
 
 zplug check --verbose
@@ -119,6 +121,10 @@ gl() {
       --bind "ctrl-m:execute:
                 echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
                 xargs -I % sh -c 'git show --color=always % | less -R'"
+}
+
+git_remove_merged() {
+        git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
 }
 
 if ([ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]) && [ -z "$TMUX" ]; then

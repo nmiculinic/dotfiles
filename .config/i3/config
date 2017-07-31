@@ -186,6 +186,7 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id "sleep 0.5 && xmodmap /home/lpp/.Xmodmap"
 exec_always compton
 exec --no-startup-id "transmission-gtk --minimized"
+exec --no-startup-id "slack"
 
 # Keys
 exec_always setxkbmap hr us

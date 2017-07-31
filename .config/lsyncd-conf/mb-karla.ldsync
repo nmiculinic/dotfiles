@@ -1,5 +1,6 @@
 settings {
         statusFile = "/tmp/lsyncd_karla.stat",
+        logfile = "/tmp/lsyncd_karla.log"
 }
 
 sync {
