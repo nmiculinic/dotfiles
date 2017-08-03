@@ -139,3 +139,12 @@ export HADOOP_CONF_DIR=/etc/hadoop
 export HADOOP_PREFIX=/usr/lib/hadoop/
 export JAVA_HOME=/usr/lib/jvm/java-8-jdk
 export DOCKER_ID_USER="nmiculinic"
+
+__docker_machine_ps1 () {
+    if test ${DOCKER_MACHINE_NAME}; then
+        printf -- "[%s] " "${DOCKER_MACHINE_NAME}"
+    fi
+}
+
+PS1='$(__docker_machine_ps1)'"$PS1"
+
