@@ -87,7 +87,6 @@ bindsym $mod+Shift+a exec atom
 bindsym $mod+a [class="atom"] focus
 bindsym $mod+Shift+g exec google-chrome-stable
 bindsym $mod+g [class="google-chrome"] focus
-bindsym Control+q kill
 bindsym $mod+Control+l exec "i3lock -i /home/lpp/Pictures/lock.png"
 
 ##      ##  #######  ########  ##    ##  ######  ########     ###     ######  ########
