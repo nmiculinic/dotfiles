@@ -116,8 +116,11 @@ set $w10 "10 "
 
 
 #default workspace
-assign [class="Spot"] → $w10
+# For some reason spotify's not working properly
+assign [class="Spotify"] → $w10
+assign [instance="spotify"] → $w10
 assign [class="Franz"] → $w9
+assign [class="Slack"] → $w9
 assign [title="WeeChat"] → $w9
 assign [instance="weechat"] $w9
 
@@ -186,6 +189,7 @@ exec_always --no-startup-id "sleep 0.5 && xmodmap /home/lpp/.Xmodmap"
 exec_always compton
 exec --no-startup-id "transmission-gtk --minimized"
 exec --no-startup-id "slack"
+exec --no-startup-id "nm-applet"
 
 # Keys
 exec_always setxkbmap hr us
