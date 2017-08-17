@@ -11,6 +11,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug '907th/vim-auto-save'
 Plug 'gavinbeatty/dragvisuals.vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'tomlion/vim-solidity'
 call plug#end()
 
 filetype plugin indent on
@@ -59,3 +61,14 @@ let g:airline_powerline_fonts = 1
 
 " Keybindings
 nnoremap <CR> :noh<CR><CR>
+
+""" Syntastic """
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
