@@ -148,3 +148,6 @@ __docker_machine_ps1 () {
 
 PS1='$(__docker_machine_ps1)'"$PS1"
 
+
+# added by travis gem
+[ -f /home/lpp/.travis/travis.sh ] && source /home/lpp/.travis/travis.sh
