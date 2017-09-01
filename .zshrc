@@ -109,11 +109,18 @@ alias pbpaste='xclip -selection clipboard -o'
 alias pb='pastebinit'
 alias dd='dd status=progress'
 alias rg='ranger'
+alias -g G='| grep '
+alias t='tmux'
 export VISUAL=nvim
 export QT_QPA_PLATFORMTHEME=gtk2
 export KEYTIMEOUT=1
 #
 unalias gl
+gppr() {
+    # git push and pull request
+    git push -u origin $(git rev-parse --abbrev-ref HEAD) && hub pull-request -b master
+}
+
 gl() {
   git log --graph --color=always \
 	  --pretty=format:"%C(auto)%h%d %s %C(green)%cn, %C(cyan)%cr%Creset" "$@" |
