@@ -6,6 +6,10 @@
 set $mod Mod4
 set $alt Mod1
 
+for_window [class="^.*"] border pixel 0
+gaps inner 10
+gaps outer 0
+smart_gaps on
 
 ##    ## ######## ##    ## ########  #### ##    ## ########  #### ##    ##  ######    ######
 ##   ##  ##        ##  ##  ##     ##  ##  ###   ## ##     ##  ##  ###   ## ##    ##  ##    ##
@@ -56,11 +60,8 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
-# bindsym $mod+a focus parent
-
-# focus the child container
-# bindsym $mod+d focus child
+bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus child
 
 # Media  controls
 bindsym XF86AudioPlay exec playerctl play
@@ -83,8 +84,6 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Shortuts
 
-bindsym $mod+Shift+a exec atom
-bindsym $mod+a [class="atom"] focus
 bindsym $mod+Shift+g exec google-chrome-stable
 bindsym $mod+g [class="google-chrome"] focus
 bindsym $mod+Control+l exec "i3lock -i /home/lpp/Pictures/lock.png"
@@ -188,8 +187,8 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id "sleep 0.5 && xmodmap /home/lpp/.Xmodmap"
 exec_always compton
 exec --no-startup-id "transmission-gtk --minimized"
-exec --no-startup-id "slack"
 exec --no-startup-id "nm-applet"
+exec --no-startup-id "polybar example"
 
 # Keys
 exec_always setxkbmap hr us
@@ -216,22 +215,22 @@ set $text-color          #9ea6ae
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
-bar {
-    font pango: Noto Sans Bold 10
-    status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        tray_output HDMI1
-        position top
-        strip_workspace_numbers no
-  colors {
-      background $bg-color
-          separator #757575
-      #                  border             background         text
-      focused_workspace  #434852            $bg-color          $text-color
-      inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-      urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-
-  }
-}
+# bar {
+#     font pango: Noto Sans Bold 10
+#     status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#         tray_output HDMI1
+#         position top
+#         strip_workspace_numbers no
+#   colors {
+#       background $bg-color
+#           separator #757575
+#       #                  border             background         text
+#       focused_workspace  #434852            $bg-color          $text-color
+#       inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+#       urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+# 
+#   }
+# }
 
 set $abg-color #444444
 
