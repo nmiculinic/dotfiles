@@ -1,6 +1,6 @@
 export ZPLUG_HOME=$HOME/.zplug
-if [[ ! -d $ZPLUG_HOME ]];then
-  curl -sL zplug.sh/installer | zsh
+if [[ ! -d $ZPLUG_HOME ]]; then
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 fi
 
 source $ZPLUG_HOME/init.zsh
@@ -22,18 +22,9 @@ zplug "zsh-users/zsh-syntax-highlighting"
 #1 ... 9 changes the directory to the n previous one.
 zplug "zsh-users/prezto", use:"modules/{utility,directory,git,environment,editor,history,completion}"
 
-if [ "$(hostname)" = "protagonist" ]; then
-  zplug "zsh-users/prezto", use:"modules/{zsh-notify,terminal}"
-  zstyle ':prezto:module:terminal' auto-title 'yes'
-  zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
-fi
-zplug 'eendroroy/alien-minimal', as:theme
-
+# zplug 'eendroroy/alien-minimal', as:theme
+zplug "dracula/zsh", as:theme
 zstyle ':prezto:module:editor' key-bindings 'vi'
-
-export HISTSIZE=100000
-export SAVEHIST=100000
-
 zstyle ':prezto:module:syntax-highlighting' highlighters \
   'main' \
   'brackets' \
@@ -63,7 +54,6 @@ zplug "junegunn/fzf", use:"shell/key-bindings.zsh", defer:3
 zplug "littleq0903/gcloud-zsh-completion"
 fpath=($HOME/.zplug/repos/littleq0903/gcloud-zsh-completion/src $fpath)
 zplug load #--verbose
-
 zplug check --verbose
 if [ ! $? -eq 0 ]; then
   printf "Install? [y/N]: "
@@ -71,6 +61,9 @@ if [ ! $? -eq 0 ]; then
     echo; zplug install
   fi
 fi
+
+export HISTSIZE=100000
+export SAVEHIST=100000
 
 zstyle ':completion:*:default'         list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu select
@@ -153,8 +146,12 @@ __docker_machine_ps1 () {
     fi
 }
 
-PS1='$(__docker_machine_ps1)'"$PS1"
-
+#Prompt
+# autoload -Uz promptinit
+# promptinit
+# prompt walters
+ZSH_THEME="dracula"
+PROMPT='$(__docker_machine_ps1)'"$PROMPT"
 
 # added by travis gem
 [ -f /home/lpp/.travis/travis.sh ] && source /home/lpp/.travis/travis.sh
