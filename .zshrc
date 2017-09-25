@@ -104,6 +104,7 @@ alias dd='dd status=progress'
 alias rg='ranger'
 alias -g G='| grep '
 alias t='tmux'
+alias ls='ls --color=auto'
 export VISUAL=nvim
 export QT_QPA_PLATFORMTHEME=gtk2
 export KEYTIMEOUT=1
@@ -146,10 +147,6 @@ __docker_machine_ps1 () {
     fi
 }
 
-#Prompt
-# autoload -Uz promptinit
-# promptinit
-# prompt walters
 ZSH_THEME="dracula"
 PROMPT='$(__docker_machine_ps1)'"$PROMPT"
 
