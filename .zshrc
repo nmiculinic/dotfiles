@@ -52,6 +52,7 @@ zplug "junegunn/fzf-bin", \
 
 zplug "junegunn/fzf", use:"shell/key-bindings.zsh", defer:3
 zplug "littleq0903/gcloud-zsh-completion"
+# zplug "RobertDeRose/virtualenv-autodetect"
 fpath=($HOME/.zplug/repos/littleq0903/gcloud-zsh-completion/src $fpath)
 zplug load #--verbose
 zplug check --verbose
@@ -62,8 +63,8 @@ if [ ! $? -eq 0 ]; then
   fi
 fi
 
-export HISTSIZE=100000
-export SAVEHIST=100000
+export HISTSIZE=1000000
+export SAVEHIST=1000000
 
 zstyle ':completion:*:default'         list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu select
