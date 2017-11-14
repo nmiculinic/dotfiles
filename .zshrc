@@ -13,6 +13,10 @@ if [[ -d $HOME/fpath ]]; then
 	fpath=($HOME/fpath $fpath)
 fi
 
+if [[ -d $HOME/go/bin ]]; then
+	export PATH=$HOME/go/bin:$PATH
+fi
+
 # ruby
 if which ruby > /dev/null && which gem >/dev/null; then
 	PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
