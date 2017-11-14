@@ -9,6 +9,10 @@ if [[ -f $HOME/.zshrc.local ]]; then
 	source $HOME/.zshrc.local
 fi
 
+if [[ -d $HOME/fpath ]]; then
+	fpath=($HOME/fpath $fpath)
+fi
+
 # ruby
 if which ruby > /dev/null && which gem >/dev/null; then
 	PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
