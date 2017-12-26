@@ -1,0 +1,12 @@
+settings {
+        statusFile = "/tmp/lsyncd_azura.stat",
+}
+
+sync {
+   default.rsyncssh,
+   source="/home/lpp/Desktop/minion-basecaller",
+   host="azura",
+   targetdir="/home/neven/minion-basecaller",
+   delay = 1,
+   exclude={"notebook", "log"}
+}
