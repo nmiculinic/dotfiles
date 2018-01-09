@@ -39,13 +39,12 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'pattern' \
   'cursor' \
   'root'
-
-
 zplug "plugins/wd",   from:oh-my-zsh
 zplug "plugins/archlinux",   from:oh-my-zsh
 zplug "plugins/pip",   from:oh-my-zsh
 zplug "plugins/colored-man-pages",   from:oh-my-zsh
 zplug "plugins/fasd",   from:oh-my-zsh
+zplug "plugins/kubectl",   from:oh-my-zsh
 zplug "djui/alias-tips"
 zplug "unixorn/git-extra-commands"
 zplug "clvv/fasd", as:command, hook-build:"PREFIX=$HOME/.local make install
@@ -59,9 +58,8 @@ zplug "junegunn/fzf-bin", \
     use:"*linux*amd64*"
 
 zplug "junegunn/fzf", use:"shell/key-bindings.zsh", defer:3
-zplug "littleq0903/gcloud-zsh-completion"
-# zplug "RobertDeRose/virtualenv-autodetect"
 fpath=($HOME/.zplug/repos/littleq0903/gcloud-zsh-completion/src $fpath)
+
 zplug load #--verbose
 zplug check --verbose
 if [ ! $? -eq 0 ]; then
@@ -114,6 +112,7 @@ alias rg='ranger'
 alias -g G='| grep '
 alias t='tmux'
 alias ls='ls --color=auto'
+alias gt='git tree'
 export VISUAL=nvim
 export QT_QPA_PLATFORMTHEME=gtk2
 export KEYTIMEOUT=1
@@ -161,3 +160,15 @@ PROMPT='$(__docker_machine_ps1)'"$PROMPT"
 
 # added by travis gem
 [ -f /home/lpp/.travis/travis.sh ] && source /home/lpp/.travis/travis.sh
+
+# Kubernetes fix
+if [ $commands[kubectl] ]; then
+  source <(kubectl completion zsh)
+fi
+
+if [ $commands[kompose] ]; then
+  source <(kompose completion zsh)
+fi
+
+[ -f /opt/google-cloud-sdk/completion.zsh.inc ] && source /opt/google-cloud-sdk/completion.zsh.inc
+
