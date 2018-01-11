@@ -170,8 +170,8 @@ if [ $commands[kompose] ]; then
   source <(kompose completion zsh)
 fi
 
-if [ $commands[heml] ]; then
-  source <(heml completion zsh)
+if [ $commands[helm] ]; then
+  source <(helm completion zsh)
 fi
 
 [ -f /opt/google-cloud-sdk/completion.zsh.inc ] && source /opt/google-cloud-sdk/completion.zsh.inc
