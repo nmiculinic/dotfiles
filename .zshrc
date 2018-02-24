@@ -174,6 +174,10 @@ if [ $commands[helm] ]; then
   source <(helm completion zsh)
 fi
 
+if [ $commands[minikube] ]; then
+  source <(minikube completion zsh)
+fi
+
 [ -f /opt/google-cloud-sdk/completion.zsh.inc ] && source /opt/google-cloud-sdk/completion.zsh.inc
 alias kedit-secret="KUBE_EDITOR=kube-secret-editor kubectl edit secret"
 export GOPATH=$HOME/go
