@@ -155,13 +155,9 @@ __docker_machine_ps1 () {
     fi
 }
 
-__kube_namespace() {
-    printf -- "k8s [%s] " "$(kubectl config get-contexts | grep '^*' | sed -E 's/\s+/\t/g' | cut -f5)"
-}
 
 ZSH_THEME="dracula"
 PROMPT='$(__docker_machine_ps1)'"$PROMPT"
-RPROMPT='$(__kube_namespace)'"$RPROMPT"
 
 # added by travis gem
 [ -f /home/lpp/.travis/travis.sh ] && source /home/lpp/.travis/travis.sh
@@ -169,6 +165,11 @@ RPROMPT='$(__kube_namespace)'"$RPROMPT"
 # Kubernetes fix
 if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
+
+__kube_namespace() {
+    printf -- "k8s [%s] " "$(kubectl config get-contexts | grep '^*' | sed -E 's/\s+/\t/g' | cut -f5)"
+}
+RPROMPT='$(__kube_namespace)'"$RPROMPT"
 fi
 
 if [ $commands[kompose] ]; then
