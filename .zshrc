@@ -136,9 +136,9 @@ git_remove_merged() {
         git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
 }
 
-if ([ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]) && [ -z "$TMUX" ]; then
-  tmux attach-session -t work || tmux new-session -s work
-fi
+# if ([ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]) && [ -z "$TMUX" ]; then
+#   tmux attach-session -t work || tmux new-session -s work
+# fi
 
 dri() { docker rmi $(docker images -q); }
 alias ddrun='docker run --rm -it --user="`id -u`:`id -g`"'
