@@ -48,7 +48,7 @@ font-2 = siji:pixelsize=10;0
 
 modules-left = i3
 modules-center = xwindow
-modules-right = filesystem volume xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = filesystem volume xkeyboard memory cpu wlan eth battery temperature redshift date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -378,5 +378,11 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
+
+[module/redshift]
+type = custom/script
+exec = redshift-color.sh
+interval = 90
+format-underline = #268bd2
 
 ; vim:ft=dosini
