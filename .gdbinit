@@ -32,9 +32,9 @@ set $SHOWOBJECTIVEC = 1
 # set to 0 to remove display of cpu registers (default is 1)
 set $SHOWCPUREGISTERS = 1
 # set to 1 to enable display of stack (default is 0)
-set $SHOWSTACK = 0
+set $SHOWSTACK = 1
 # set to 1 to enable display of data window (default is 0)
-set $SHOWDATAWIN = 0
+set $SHOWDATAWIN = 1
 
 
 # __________________end gdb options_________________
