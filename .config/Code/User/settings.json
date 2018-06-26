@@ -1,3 +1,6 @@
 {
-    "keyboard.dispatch": "keyCode"
+    "keyboard.dispatch": "keyCode",
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    }
 }

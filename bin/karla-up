@@ -5,4 +5,5 @@ ssh -nNTf -L 9000:localhost:9000 karla
 rm -f ~/mnt/docker.sock
 ssh  -nNTf -L /home/lpp/mnt/docker.sock:/var/run/docker.sock karla
 echo 'export DOCKER_HOST=unix:///home/lpp/mnt/docker.sock'
-sshfs karla:/hgst8TB/ ~/mnt/karla
+sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 karla:/hgst8TB/ ~/mnt/karla
+
