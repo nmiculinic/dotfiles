@@ -2,5 +2,6 @@
     "keyboard.dispatch": "keyCode",
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
-    }
+    },
+    "window.zoomLevel": 1
 }
