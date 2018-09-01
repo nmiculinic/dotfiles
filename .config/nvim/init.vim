@@ -9,10 +9,11 @@ Plug 'valloric/youcompleteme', {'do': './install.py'}
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug '907th/vim-auto-save'
+" Plug '907th/vim-auto-save'
 Plug 'gavinbeatty/dragvisuals.vim'
 Plug 'vim-syntastic/syntastic'
-Plug 'tomlion/vim-solidity'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'w0rp/ale'
 call plug#end()
 
 filetype plugin indent on
@@ -72,3 +73,25 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+
+""" vim-go """
+let g:go_fmt_command = "goimports"
+
+" Error and warning signs.
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+" Enable integration with airline.
+let g:airline#extensions#ale#enabled = 1
+
+if has('nvim')
+    " Enable deoplete on startup
+    let g:deoplete#enable_at_startup = 1
+endif
+
+" Disable deoplete when in multi cursor mode
+function! Multiple_cursors_before()
+    let b:deoplete_disable_auto_complete = 1
+endfunction
+function! Multiple_cursors_after()
+    let b:deoplete_disable_auto_complete = 0
+endfunction
