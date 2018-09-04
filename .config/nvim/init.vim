@@ -4,7 +4,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline'  " TODO: see how this can be improved
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'chriskempson/base16-vim' don't need it as far as I can tell
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
