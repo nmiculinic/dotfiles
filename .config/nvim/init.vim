@@ -39,7 +39,7 @@ let g:airline_powerline_fonts = 1
 " quality of life
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
+nnoremap <leader>q :cclose<CR>
 
 " vim-go
 let g:go_fmt_command = "goimports"
@@ -56,6 +56,7 @@ let g:go_auto_sameids = 1
 let g:go_auto_type_info = 1
 let g:go_list_type = "quickfix"
 
+autocmd FileType go nmap <leader>a  <Plug>(go-alternate)
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
