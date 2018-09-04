@@ -28,10 +28,19 @@ set clipboard+=unnamedplus
 set number 
 set relativenumber
 set wildmenu
+set autowrite
 
 set background=dark
+
+let mapleader = ","
+
+"airline
 let g:airline_powerline_fonts = 1
 
+" quality of life
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
 
 " vim-go
 let g:go_fmt_command = "goimports"
@@ -46,3 +55,8 @@ let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 let g:go_auto_sameids = 1
 let g:go_auto_type_info = 1
+let g:go_list_type = "quickfix"
+
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
