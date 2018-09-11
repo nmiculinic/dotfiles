@@ -5,7 +5,10 @@ Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline'  " TODO: see how this can be improved
 Plug 'vim-airline/vim-airline-themes'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
+
+let g:deoplete#enable_at_startup = 1
 
 filetype plugin indent on
 set backspace=indent,eol,start
