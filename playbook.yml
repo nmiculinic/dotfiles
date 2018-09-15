@@ -1,0 +1,31 @@
+---
+- name: Setup arch linux env
+  hosts: localhost
+  become: yes
+  tasks:
+  - name: Create aur_builder user
+    user: 
+        name: aur_builder
+        create_home: yes
+        shell: /sbin/nologin
+  - name: aur_builder pacman sudo 
+    lineinfile:
+        path: /etc/sudoers.d/aur_builder-allow-to-sudo-pacman
+        state: present
+        line: "aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman"
+        validate: /usr/sbin/visudo -cf %s
+        create: yes
+  - name: Install basic software
+    pacman:
+        name: 
+        - zsh
+        state: latest
+        update_cache: yes
+  - name: AUR install
+    become: yes
+    become_user: aur_builder
+    aur: 
+        name: zplug 
+        use: pacaur
+        aur_only: true
+        skip_installed: false
