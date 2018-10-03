@@ -111,7 +111,9 @@ alias dd='dd status=progress'
 alias rg='ranger'
 alias -g G='| grep '
 alias t='tmux'
-alias ls='ls --color=auto'
+if ! [[ `uname` == "Darwin" ]]; then
+    alias ls='ls --color=auto'
+fi
 alias gt='git tree'
 export VISUAL=nvim
 export QT_QPA_PLATFORMTHEME=gtk2
