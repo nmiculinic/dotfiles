@@ -3,5 +3,6 @@
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
     },
-    "window.zoomLevel": 1
+    "window.zoomLevel": 1,
+    "vim.useSystemClipboard": true
 }
