@@ -104,15 +104,17 @@ else
   alias v=vim
   alias vi=vim
 fi
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
 alias pb='pastebinit'
 alias dd='dd status=progress'
 alias rg='ranger'
 alias -g G='| grep '
 alias t='tmux'
+
 if ! [[ `uname` == "Darwin" ]]; then
     alias ls='ls --color=auto'
+else
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
 fi
 alias gt='git tree'
 export VISUAL=nvim
