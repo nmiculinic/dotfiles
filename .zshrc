@@ -112,7 +112,6 @@ alias t='tmux'
 
 if ! [[ `uname` == "Darwin" ]]; then
     alias ls='ls --color=auto'
-else
     alias pbcopy='xclip -selection clipboard'
     alias pbpaste='xclip -selection clipboard -o'
 fi
