@@ -170,7 +170,8 @@ if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
 
 __kube_namespace() {
-    printf -- "k8s [%s] " "$(kubectl config get-contexts | grep '^*' | sed -E 's/\s+/\t/g' | cut -f5)"
+    # printf -- "k8s [%s] " "$(kubectl config get-contexts | grep '^*' | sed -E 's/\s+/\t/g' | cut -f5)"
+    printf -- "k8s [%s] " "$(kubectl config current-context)"
 }
 RPROMPT='$(__kube_namespace)'"$RPROMPT"
 fi
