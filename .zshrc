@@ -99,14 +99,17 @@ else
   alias v=vim
   alias vi=vim
 fi
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
 alias pb='pastebinit'
 alias dd='dd status=progress'
 alias rg='ranger'
 alias -g G='| grep '
 alias t='tmux'
-alias ls='ls --color=auto'
+
+if ! [[ `uname` == "Darwin" ]]; then
+    alias ls='ls --color=auto'
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
+fi
 alias gt='git tree'
 export VISUAL=nvim
 export QT_QPA_PLATFORMTHEME=gtk2
@@ -162,7 +165,8 @@ if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
 
 __kube_namespace() {
-    printf -- "k8s [%s] " "$(kubectl config get-contexts | grep '^*' | sed -E 's/\s+/\t/g' | cut -f5)"
+    # printf -- "k8s [%s] " "$(kubectl config get-contexts | grep '^*' | sed -E 's/\s+/\t/g' | cut -f5)"
+    printf -- "k8s [%s] " "$(kubectl config current-context)"
 }
 RPROMPT='$(__kube_namespace)'"$RPROMPT"
 fi
