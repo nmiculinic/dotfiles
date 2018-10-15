@@ -17,11 +17,6 @@ if [[ -d $HOME/go/bin ]]; then
 	export PATH=$HOME/go/bin:$PATH
 fi
 
-# ruby
-if which ruby > /dev/null && which gem >/dev/null; then
-	PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-fi
-
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting"
 # zplug "zsh-users/zsh-autosuggestions"
