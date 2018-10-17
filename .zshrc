@@ -86,8 +86,8 @@ done
 
 
 export LANG=en_US.UTF-8
-export EDITOR=/usr/bin/nvim
-export VISUAL=/usr/bin/nvim
+export EDITOR=$(which nvim)
+export VISUAL=$(which nvim)
 export BROWSER=/usr/bin/google-chrome-stable
 
 # Aliases
