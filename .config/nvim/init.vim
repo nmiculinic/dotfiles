@@ -6,6 +6,7 @@ Plug 'vim-airline/vim-airline'  " TODO: see how this can be improved
 Plug 'vim-airline/vim-airline-themes'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
@@ -35,6 +36,7 @@ set autowrite
 set background=dark
 
 let mapleader = ","
+set completeopt=menu,menuone    " Show popup menu, even if there is one entry
 
 "airline
 let g:airline_powerline_fonts = 1
