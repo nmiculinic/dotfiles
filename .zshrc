@@ -162,7 +162,7 @@ PROMPT='$(__docker_machine_ps1)'"$PROMPT"
 
 # Kubernetes fix
 if [ $commands[kubectl] ]; then
-  source <(kubectl completion zsh)
+    source <(kubectl completion zsh)
 
 __kube_namespace() {
     # printf -- "k8s [%s] " "$(kubectl config get-contexts | grep '^*' | sed -E 's/\s+/\t/g' | cut -f5)"
@@ -179,6 +179,7 @@ if [ $commands[helm] ]; then
   source <(helm completion zsh)
 fi
 
+export MINIKUBE_WANTUPDATENOTIFICATION=false  # To speed up shell start up time
 if [ $commands[minikube] ]; then
   source <(minikube completion zsh)
 fi
