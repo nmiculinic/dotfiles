@@ -19,7 +19,7 @@ fi
 
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting"
-# zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-autosuggestions"
 
 #d prints the contents of the directory stack.
 #1 ... 9 changes the directory to the n previous one.
@@ -188,3 +188,6 @@ fi
 alias kedit-secret="KUBE_EDITOR=kube-secret-editor kubectl edit secret"
 export GOPATH=$HOME/go
 alias pasteixio='curl -F "f:1=<-" ix.io'
+
+# https://github.com/zsh-users/zsh-autosuggestions
+bindkey '^ ' autosuggest-accept
