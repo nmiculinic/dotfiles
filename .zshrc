@@ -191,3 +191,4 @@ alias pasteixio='curl -F "f:1=<-" ix.io'
 
 # https://github.com/zsh-users/zsh-autosuggestions
 bindkey '^ ' autosuggest-accept
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
