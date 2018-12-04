@@ -164,6 +164,9 @@ PROMPT='$(__docker_machine_ps1)'"$PROMPT"
 if [ $commands[kubectl] ]; then
     source <(kubectl completion zsh)
 
+    alias kge='kubectl get endpoints'
+    alias kg='kubectl get'
+
 __kube_namespace() {
     # printf -- "k8s [%s] " "$(kubectl config get-contexts | grep '^*' | sed -E 's/\s+/\t/g' | cut -f5)"
     printf -- "k8s [%s] " "$(kubectl config current-context)"
@@ -192,3 +195,10 @@ alias pasteixio='curl -F "f:1=<-" ix.io'
 # https://github.com/zsh-users/zsh-autosuggestions
 bindkey '^ ' autosuggest-accept
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+
+
+if [ $commands[terraform] ]; then
+    autoload -U +X bashcompinit && bashcompinit
+    complete -o nospace -C $(which terraform) terraform
+fi
