@@ -167,6 +167,11 @@ if [ $commands[kubectl] ]; then
     alias kge='kubectl get endpoints'
     alias kg='kubectl get'
 
+ksn() {
+    kubectl config set-context --current=true --namespace=$1
+    echo "switched to namespace $1"
+}
+
 __kube_namespace() {
     # printf -- "k8s [%s] " "$(kubectl config get-contexts | grep '^*' | sed -E 's/\s+/\t/g' | cut -f5)"
     printf -- "k8s [%s] " "$(kubectl config current-context)"
