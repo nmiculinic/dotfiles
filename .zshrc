@@ -13,10 +13,6 @@ if [[ -d $HOME/fpath ]]; then
 	fpath=($HOME/fpath $fpath)
 fi
 
-if [[ -d $HOME/go/bin ]]; then
-	export PATH=$HOME/go/bin:$PATH
-fi
-
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
@@ -72,7 +68,7 @@ zstyle ':completion:*' menu select
 setopt no_complete_aliases
 setopt HIST_IGNORE_DUPS
 
-for p in "$HOME/.local/bin" "$HOME/bin" "$ZPLUG_BIN"; do
+for p in "$HOME/.local/bin" "$HOME/bin" "$ZPLUG_BIN" "$HOME/go/bin"; do
   if [ -d $p ]; then
     export PATH=$p:$PATH
   fi
@@ -174,7 +170,7 @@ ksn() {
 
 __kube_namespace() {
     # printf -- "k8s [%s] " "$(kubectl config get-contexts | grep '^*' | sed -E 's/\s+/\t/g' | cut -f5)"
-    printf -- "k8s [%s] " "$(kubectl config current-context)"
+    printf -- "k8s [%s] " "$(kubectl config current-context 2> /dev/null)"
 }
 RPROMPT='$(__kube_namespace)'"$RPROMPT"
 fi
@@ -207,5 +203,3 @@ if [ $commands[terraform] ]; then
     autoload -U +X bashcompinit && bashcompinit
     complete -o nospace -C $(which terraform) terraform
 fi
-
-alias kaf='kubectl apply -f'
