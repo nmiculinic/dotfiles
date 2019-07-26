@@ -108,7 +108,7 @@ Or else you can use directly the break command (break [NSControl stringValue])
 end
 
 
-define bpc 
+define bpc
     if $argc != 1
         help bpc
     else
@@ -525,7 +525,7 @@ define smallregisters
 	set $si = $rsi & 0xffff
 	# from rdi
 	set $edi = $rdi & 0xffffffff
-	set $di = $rdi & 0xffff		
+	set $di = $rdi & 0xffff
 #32 bits stuff
  else
 	# from eax
@@ -547,9 +547,9 @@ define smallregisters
 	# from esi
 	set $si = $esi & 0xffff
 	# from edi
-	set $di = $edi & 0xffff		
+	set $di = $edi & 0xffff
  end
- 
+
 end
 document smallregisters
 Create the 16 and 8 bit cpu registers (gdb doesn't have them by default)
@@ -633,7 +633,7 @@ define dis
     end
     if $argc == 2
         disassemble $arg0 $arg1
-    end 
+    end
     if $argc > 2
         help dis
     end
@@ -844,7 +844,7 @@ define dumpjump
 	# cf != 0 or zf != 0
    		echo \033[31m
    		printf "  Jump is NOT taken (c!=0 or z!=0)"
-  	end 
+  	end
  end
 
 ## opcode 0x73: JAE, JNB, JNC (jump if CF=0)
@@ -858,9 +858,9 @@ define dumpjump
 	# cf != 0
    		echo \033[31m
    		printf "  Jump is NOT taken (c!=0)"
-  	end 
+  	end
  end
- 	
+
 ## opcode 0x72: JB, JC, JNAE (jump if CF=1)
 ## opcode 0x0F82: JNAE, JB, JC
  if ( ($_byte1 == 0x72) || ($_byte1 == 0x0F && $_byte2 == 0x82) )
@@ -872,7 +872,7 @@ define dumpjump
 	# cf != 1
    		echo \033[31m
    		printf "  Jump is NOT taken (c!=1)"
-  	end 
+  	end
  end
 
 ## opcode 0x76: JBE, JNA (jump if CF=1 or ZF=1)
@@ -886,7 +886,7 @@ define dumpjump
 	# cf != 1 or zf != 1
    		echo \033[31m
    		printf "  Jump is NOT taken (c!=1 or z!=1)"
-  	end 
+  	end
  end
 
 ## opcode 0xE3: JCXZ, JECXZ, JRCXZ (jump if CX=0 or ECX=0 or RCX=0)
@@ -899,7 +899,7 @@ define dumpjump
 	#
    		echo \033[31m
    		printf "  Jump is NOT taken (cx!=0 or ecx!=0)"
-  	end 
+  	end
  end
 
 ## opcode 0x74: JE, JZ (jump if ZF=1)
@@ -913,7 +913,7 @@ define dumpjump
  # ZF = 0
    		echo \033[31m
    		printf "  Jump is NOT taken (z!=1)"
-  	end 
+  	end
  end
 
 ## opcode 0x7F: JG, JNLE (jump if ZF=0 and SF=OF)
@@ -927,7 +927,7 @@ define dumpjump
  #
    		echo \033[31m
    		printf "  Jump is NOT taken (z!=0 or s!=o)"
-  	end 
+  	end
  end
 
 ## opcode 0x7D: JGE, JNL (jump if SF=OF)
@@ -941,7 +941,7 @@ define dumpjump
  #
    		echo \033[31m
    		printf "  Jump is NOT taken (s!=o)"
-  	end 
+  	end
  end
 
 ## opcode: 0x7C: JL, JNGE (jump if SF != OF)
@@ -955,7 +955,7 @@ define dumpjump
  #
    		echo \033[31m
    		printf "  Jump is NOT taken (s=o)"
-  	end 
+  	end
  end
 
 ## opcode 0x7E: JLE, JNG (jump if ZF = 1 or SF != OF)
@@ -969,7 +969,7 @@ define dumpjump
  #
    		echo \033[31m
    		printf "  Jump is NOT taken (zf!=1 or sf=of)"
-  	end 
+  	end
  end
 
 ## opcode 0x75: JNE, JNZ (jump if ZF = 0)
@@ -983,9 +983,9 @@ define dumpjump
  # ZF = 1
    		echo \033[31m
    		printf "  Jump is NOT taken (z!=0)"
-  	end 
+  	end
  end
- 
+
 ## opcode 0x71: JNO (OF = 0)
 ## opcode 0x0F81: JNO (OF = 0)
  if ( ($_byte1 == 0x71) || ($_byte1 == 0x0F && $_byte2 == 0x81) )
@@ -997,7 +997,7 @@ define dumpjump
  # OF != 0
    		echo \033[31m
    		printf "  Jump is NOT taken (o!=0)"
-  	end 
+  	end
  end
 
 ## opcode 0x7B: JNP, JPO (jump if PF = 0)
@@ -1011,7 +1011,7 @@ define dumpjump
  # PF != 0
    		echo \033[31m
    		printf "  Jump is taken (p!=0)"
-  	end 
+  	end
  end
 
 ## opcode 0x79: JNS (jump if SF = 0)
@@ -1025,7 +1025,7 @@ define dumpjump
  # SF != 0
    		echo \033[31m
    		printf "  Jump is NOT taken (s!=0)"
-  	end 
+  	end
  end
 
 ## opcode 0x70: JO (jump if OF=1)
@@ -1039,7 +1039,7 @@ define dumpjump
  # OF != 1
    		echo \033[31m
    		printf "  Jump is NOT taken (o!=1)"
-  	end 
+  	end
  end
 
 ## opcode 0x7A: JP, JPE (jump if PF=1)
@@ -1053,7 +1053,7 @@ define dumpjump
  # PF = 0
    		echo \033[31m
    		printf "  Jump is NOT taken (p!=1)"
-  	end 
+  	end
  end
 
 ## opcode 0x78: JS (jump if SF=1)
@@ -1067,7 +1067,7 @@ define dumpjump
  # SF != 1
    		echo \033[31m
    		printf "  Jump is NOT taken (s!=1)"
-  	end 
+  	end
  end
 
 # end of dumpjump function
@@ -1080,7 +1080,7 @@ end
 # initialize variable
 set $displayobjectivec = 0
 
-define context 
+define context
     echo \033[34m
     if $SHOWCPUREGISTERS == 1
 	    printf "----------------------------------------"
@@ -1151,8 +1151,8 @@ define context
 			printf "[ObjectiveC]\n"
       			echo \033[0m\033[30m
       			x/s $objectivec
-     		end   
-     		set $displayobjectivec = 0     
+     		end
+     		set $displayobjectivec = 0
     	end
     	if $displayobjectivec == 1
       		echo \033[34m
@@ -1163,8 +1163,8 @@ define context
 		echo \033[34m\033[1m
 		printf "[ObjectiveC]\n"
       		echo \033[0m\033[30m
-      		x/s $objectivec 
-    	end   
+      		x/s $objectivec
+    	end
    end
     echo \033[0m
 # and this is the end of this little crap
@@ -1340,10 +1340,10 @@ define stepo
     end
     # call *0x??(%ebp) (0xFF55??) || call *0x??(%esi) (0xFF56??) || call *0x??(%edi) (0xFF5F??) || call *0x??(%ebx)
     # call *0x??(%edx) (0xFF52??) || call *0x??(%ecx) (0xFF51??) || call *0x??(%edi) (0xFF57??) || call *0x??(%eax) (0xFF50??)
-    if ($_byte2 == 0x55 || $_byte2 == 0x56 || $_byte2 == 0x5F || $_byte2 == 0x53 || $_byte2 == 0x52 || $_byte2 == 0x51 || $_byte2 == 0x57 || $_byte2 == 0x50) 
+    if ($_byte2 == 0x55 || $_byte2 == 0x56 || $_byte2 == 0x5F || $_byte2 == 0x53 || $_byte2 == 0x52 || $_byte2 == 0x51 || $_byte2 == 0x57 || $_byte2 == 0x50)
      set $_nextaddress = $pc + 0x3
     end
-    # call *0x????????(%ebx) (0xFF93????????) || 
+    # call *0x????????(%ebx) (0xFF93????????) ||
     if ($_byte2 == 0x93 || $_byte2 == 0x94 || $_byte2 == 0x90 || $_byte2 == 0x92)
      set $_nextaddress = $pc + 6
     end
@@ -1353,7 +1353,7 @@ define stepo
     end
    end
  end
-# if we have found a call to bypass we set a temporary breakpoint on next instruction and continue 
+# if we have found a call to bypass we set a temporary breakpoint on next instruction and continue
  if ($_nextaddress != 0)
   tbreak *$_nextaddress
   continue
@@ -1488,7 +1488,7 @@ define nop
     if ($argc > 2 || $argc == 0)
         help nop
     end
-    
+
     if ($argc == 1)
     	set *(unsigned char *)$arg0 = 0x90
     else
@@ -1510,7 +1510,7 @@ define null
     if ( $argc >2 || $argc == 0)
         help null
     end
- 
+
     if ($argc == 1)
 	set *(unsigned char *)$arg0 = 0
     else
@@ -1616,11 +1616,11 @@ define get_insn_type
                 set $INSN_TYPE = 2
             end
         end
-        if ($_byte1 == 0xFF)        
+        if ($_byte1 == 0xFF)
             # opcode extension
             set $_byte2 = *(unsigned char *)($arg0 + 1)
             set $_opext = ($_byte2 & 0x38)
-            if ($_opext == 0x10 || $_opext == 0x18) 
+            if ($_opext == 0x10 || $_opext == 0x18)
                 # "call"
                 set $INSN_TYPE = 3
             end
@@ -1644,11 +1644,11 @@ define step_to_call
     set $_saved_ctx = $SHOW_CONTEXT
     set $SHOW_CONTEXT = 0
     set $SHOW_NEST_INSN = 0
- 
+
     set logging file /dev/null
     set logging redirect on
     set logging on
- 
+
     set $_cont = 1
     while ($_cont > 0)
         stepi
@@ -1666,11 +1666,11 @@ define step_to_call
 
     set $SHOW_CONTEXT = $_saved_ctx
     set $SHOW_NEST_INSN = 0
- 
+
     set logging file ~/gdb.txt
     set logging redirect off
     set logging on
- 
+
     printf "step_to_call command stopped at:\n  "
     x/i $pc
     printf "\n"
@@ -1693,7 +1693,7 @@ define trace_calls
     set $SHOW_NEST_INSN = 0
     set $_nest = 1
     set listsize 0
-  
+
     set logging overwrite on
     set logging file ~/gdb_trace_calls.txt
     set logging on
@@ -1735,7 +1735,7 @@ define trace_calls
 
     set $SHOW_CONTEXT = $_saved_ctx
     set $SHOW_NEST_INSN = 0
- 
+
     printf "Done, check ~/gdb_trace_calls.txt\n"
 end
 document trace_calls
@@ -1745,7 +1745,7 @@ end
 
 
 define trace_run
- 
+
     printf "Tracing...please wait...\n"
 
     set $_saved_ctx = $SHOW_CONTEXT
@@ -1962,7 +1962,7 @@ end
 define tip_syntax
     printf "\n"
     printf "\t    INTEL SYNTAX                        AT&T SYNTAX\n"
-    printf "\tmnemonic dest, src, imm            mnemonic src, dest, imm\n" 
+    printf "\tmnemonic dest, src, imm            mnemonic src, dest, imm\n"
     printf "\t[base+index*scale+disp]            disp(base, index, scale)\n"
     printf "\tregister:      eax                 register:      %%eax\n"
     printf "\timmediate:     0xFF                immediate:     $0xFF\n"

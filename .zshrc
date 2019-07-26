@@ -1,3 +1,7 @@
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
 export ZPLUG_HOME=$HOME/.zplug
 if [[ ! -d $ZPLUG_HOME ]]; then
     curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
@@ -31,8 +35,6 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'cursor' \
   'root'
 zplug "plugins/wd",   from:oh-my-zsh
-zplug "plugins/archlinux",   from:oh-my-zsh
-zplug "plugins/pip",   from:oh-my-zsh
 zplug "plugins/colored-man-pages",   from:oh-my-zsh
 zplug "plugins/fasd",   from:oh-my-zsh
 zplug "plugins/kubectl",   from:oh-my-zsh
@@ -138,20 +140,8 @@ dri() { docker rmi $(docker images -q); }
 alias ddrun='docker run --rm -it --user="`id -u`:`id -g`"'
 
 export DE=gnome  #xdg-open bug
-export HADOOP_CONF_DIR=/etc/hadoop
-export HADOOP_PREFIX=/usr/lib/hadoop/
-export JAVA_HOME=/usr/lib/jvm/java-8-jdk
 export DOCKER_ID_USER="nmiculinic"
-
-__docker_machine_ps1 () {
-    if test ${DOCKER_MACHINE_NAME}; then
-        printf -- "[%s] " "${DOCKER_MACHINE_NAME}"
-    fi
-}
-
-
 ZSH_THEME="dracula"
-PROMPT='$(__docker_machine_ps1)'"$PROMPT"
 
 # added by travis gem
 [ -f /home/lpp/.travis/travis.sh ] && source /home/lpp/.travis/travis.sh
@@ -197,8 +187,7 @@ alias pasteixio='curl -F "f:1=<-" ix.io'
 bindkey '^ ' autosuggest-accept
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-
-
+# Da fuq?
 if [ $commands[terraform] ]; then
     autoload -U +X bashcompinit && bashcompinit
     complete -o nospace -C $(which terraform) terraform

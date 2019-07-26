@@ -28,7 +28,7 @@ set nowritebackup  "only in case you don't want a backup file while editing
 set noswapfile     "no swap files
 set clipboard+=unnamedplus
 
-set number 
+set number
 set relativenumber
 set wildmenu
 set autowrite
